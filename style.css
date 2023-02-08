@@ -57,7 +57,8 @@
     margin: 10px;
     border-radius: 4vmin;
     position: relative;
-    background-image: url("images/CrissCrossPattern.png") ;
+    background-image: url("images/CrissCrossPattern.png");
+    border: 5px solid bisque;
     background-size: cover;
       }
 
@@ -120,7 +121,7 @@
     backface-visibility: hidden;
  }
 
- .card-front {
+ /* .card-front { */
     /* position: relative;
     object-fit: contain;
     width: inherit;
@@ -130,7 +131,7 @@
  img {
     position: relative;
     object-fit: contain;
-    border-radius: 4min;
+    border-radius: 4vmin;
     width: 25vmin;
     height: 25vmin;
  }
@@ -140,9 +141,115 @@
     background-size: cover;
  }
  
-.card-front {
+#cd00.card-front {
     background-color:red;
     border: 5px solid white;
+    border-radius: 4vmin;
+    background-image: none;
+}
+
+#cd01.card-front {
+    background-color:greenyellow;
+    border: 5px solid white;
+    border-radius: 4vmin;
+    background-image: none;
+}
+
+#cd02.card-front {
+    background-color:blue;
+    border: 5px solid white;
+    border-radius: 4vmin;
+    background-image: none;
+}
+
+#cd03.card-front {
+    background-color:orange;
+    border: 5px solid white;
+    border-radius: 4vmin;
+    background-image: none;
+}
+
+#cd04.card-front {
+    background-color: yellow;
+    border: 5px solid white;
+    border-radius: 4vmin;
+    background-image: none;
+}
+
+#cd05.card-front {
+    background-color:brown;
+    border: 5px solid white;
+    border-radius: 4vmin;
+    background-image: none;
+}
+
+#cd06.card-front {
+    background-color:black;
+    border: 5px solid white;
+    border-radius: 4vmin;
+    background-image: none;
+}
+
+#cd07.card-front {
+    background-color:fuchsia;
+    border: 5px solid white;
+    border-radius: 4vmin;
+    background-image: none;
+}
+
+#cd08.card-front {
+    background-color:red;
+    border: 5px solid white;
+    border-radius: 4vmin;
+    background-image: none;
+}
+
+#cd09.card-front {
+    background-color:greenyellow;
+    border: 5px solid white;
+    border-radius: 4vmin;
+    background-image: none;
+}
+
+#cd10.card-front {
+    background-color:blue;
+    border: 5px solid white;
+    border-radius: 4vmin;
+    background-image: none;
+}
+
+#cd11.card-front {
+    background-color:orange;
+    border: 5px solid white;
+    border-radius: 4vmin;
+    background-image: none;
+}
+
+#cd12.card-front {
+    background-color: yellow;
+    border: 5px solid white;
+    border-radius: 4vmin;
+    background-image: none;
+}
+
+#cd13.card-front {
+    background-color:brown;
+    border: 5px solid white;
+    border-radius: 4vmin;
+    background-image: none;
+}
+
+#cd14.card-front {
+    background-color:black;
+    border: 5px solid white;
+    border-radius: 4vmin;
+    background-image: none;
+}
+
+#cd15.card-front {
+    background-color:fuchsia;
+    border: 5px solid white;
+    border-radius: 4vmin;
     background-image: none;
 }
 
