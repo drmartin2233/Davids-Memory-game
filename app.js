@@ -25,20 +25,29 @@ const cards = document.querySelectorAll('.card');
 //                  card5, card6, card7, card8, 
 //                  card9, card10, card11, card12, 
 //                  card13, card14, card15, card16];
-
-
-
+ let cardIsFlipped = false;
+ let cardOne, cardTwo;
 
 //stored variables
 
-const boardEl = document.getElementsByClassName("board");
-const startBtn = document.getElementById("start"); const replayBtn = document.getElementById("replay");
+// const boardEl = document.getElementsByClassName("board");
+// const startBtn = document.getElementById("start"); const replayBtn = document.getElementById("replay");
 
 
-function flipCard() {
+function cardFlip() {
     console.log('click!', cards);
-    console.log(this);
-    this.classList.toggle('card-front');
+    // console.log(this);
+    this.classList.add('card-front');
+    if (cardFlip) {
+        cardFlip = true;
+        cardOne = this;
+    } else {
+        cardFlip = false;
+        cardTwo = this;
+    
+       console.log(cardOne, cardTwo); 
+    }
 }
 
-cards.forEach(card => card.addEventListener('click', flipCard));
+cards.forEach(card => card.addEventListener('click', cardFlip));
+
