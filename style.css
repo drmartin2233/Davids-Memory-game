@@ -1,6 +1,8 @@
 * {
     /* height & width now includes border & padding */
     box-sizing: border-box;
+    padding:0;
+    margin: 0;
   }
 
   body {
@@ -51,11 +53,12 @@
   }
 
   .card {
-    background-color: black;
+    /* background-color: black; */
     margin: 10px;
     border-radius: 4vmin;
     position: relative;
-    
+    background-image: url("images/CrissCrossPattern.png") ;
+    background-size: cover;
       }
 
 .btz {
@@ -81,13 +84,13 @@
 
   }
 
-  .start {
+  #start {
     background-image: linear-gradient(blueviolet, turquoise);
     color: bisque;
     border-radius: 5vmin;
   }
 
-  .replay {
+  #replay {
     background-image: linear-gradient(blueviolet, turquoise);
     color: bisque;
     border-radius: 5vmin;
@@ -103,10 +106,10 @@
 
   }
 
- .card-back {
+ .card-face {
     display: flex;
-    background-image: url("images/CrissCrossPattern.png") ;
-    background-size: cover;
+    /* background-image: url("images/CrissCrossPattern.png") ;
+    background-size: cover; */
     border-radius: 4vmin;
     object-fit: contain;
     object-position: center;
@@ -114,13 +117,14 @@
     justify-content: center;
     width: 100%;
     height: 100%;
+    backface-visibility: hidden;
  }
 
  .card-front {
-    position: relative;
+    /* position: relative;
     object-fit: contain;
     width: inherit;
-    height: inherit;
+    height: inherit; */
  }
 
  img {
@@ -130,3 +134,18 @@
     width: 25vmin;
     height: 25vmin;
  }
+
+ .card-back {
+    background-color: blue;
+    background-size: cover;
+ }
+ 
+.card-front {
+    background-color:red;
+    border: 5px solid white;
+    background-image: none;
+}
+
+.is-flipped {
+
+}
