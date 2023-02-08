@@ -126,71 +126,71 @@
     object-fit: contain;
     width: inherit;
     height: inherit; */
- }
+ 
 
- img {
+ /* img {
     position: relative;
     object-fit: contain;
     border-radius: 4vmin;
     width: 25vmin;
     height: 25vmin;
- }
+ } */
 
- .card-back {
+ /* .card-back {
     background-color: blue;
     background-size: cover;
- }
+ } */
  
-#cd00.card-front {
+.red {
     background-color:red;
     border: 5px solid white;
     border-radius: 4vmin;
     background-image: none;
 }
 
-#cd01.card-front {
+.greenyellow {
     background-color:greenyellow;
     border: 5px solid white;
     border-radius: 4vmin;
     background-image: none;
 }
 
-#cd02.card-front {
+.blue {
     background-color:blue;
     border: 5px solid white;
     border-radius: 4vmin;
     background-image: none;
 }
 
-#cd03.card-front {
+.orange {
     background-color:orange;
     border: 5px solid white;
     border-radius: 4vmin;
     background-image: none;
 }
 
-#cd04.card-front {
+.yellow {
     background-color: yellow;
     border: 5px solid white;
     border-radius: 4vmin;
     background-image: none;
 }
 
-#cd05.card-front {
+.brown {
     background-color:brown;
     border: 5px solid white;
     border-radius: 4vmin;
     background-image: none;
 }
 
-#cd06.card-front {
+.black {
     background-color:black;
     border: 5px solid white;
     border-radius: 4vmin;
     background-image: none;
 }
 
-#cd07.card-front {
+.fuchsia {
     background-color:fuchsia;
     border: 5px solid white;
     border-radius: 4vmin;
@@ -253,6 +253,6 @@
     background-image: none;
 }
 
-.is-flipped {
-
+.card.flip {
+transform: rotateY(180deg);
 }
