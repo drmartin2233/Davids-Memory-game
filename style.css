@@ -103,7 +103,11 @@
   }
 
   #message {
+    display: flex;
+    align-items: center;
     font-size: large;
+    justify-content: center;
+    content-visibility: hidden;
   }
 
   #score {
@@ -202,7 +206,7 @@
     background-image: none;
 }
 
-#cd08.card-front {
+/* #cd08.card-front {
     background-color:red;
     border: 5px solid white;
     border-radius: 4vmin;
@@ -256,7 +260,7 @@
     border: 5px solid white;
     border-radius: 4vmin;
     background-image: none;
-}
+} */
 
 .card.flip {
 transform: rotateY(180deg);
