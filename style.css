@@ -60,6 +60,7 @@
     background-image: url("images/CrissCrossPattern.png");
     border: 5px solid bisque;
     background-size: cover;
+    filter: drop-shadow(5px 2px 2px black);
       }
 
 .btz {
@@ -89,12 +90,16 @@
     background-image: linear-gradient(blueviolet, turquoise);
     color: bisque;
     border-radius: 5vmin;
+    height: 75px;
+    width: 100px;
   }
 
   #replay {
     background-image: linear-gradient(blueviolet, turquoise);
     color: bisque;
     border-radius: 5vmin;
+    height: 50px;
+    width: 75px;
   }
 
   #message {
