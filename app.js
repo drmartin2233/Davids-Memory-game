@@ -1,5 +1,8 @@
 //declare variables/const
 const cards = document.querySelectorAll('.card');
+let duration = 60;
+let timer;
+
 
 let colorArray = ["red", "red", "blue", "blue", "greenyellow",  "greenyellow", "orange", "orange", "yellow", "yellow","brown", "brown","black", "black", "fuchsia", "fuchsia"] 
 
@@ -62,9 +65,11 @@ cards.forEach((card, i) => {
 
 
 //start button / timer
+let display = document.getElementById('timer');
 let cardIsFlipped = false;
 let cardOne, cardTwo;
 let cardOneColor;
+let score = 0;
 
 let counter = 0;
 //card=flip
@@ -90,14 +95,21 @@ function cardFlip(evt) {
         //chack  match
         if (cardOneColor === cardColor) {
             console.log('match');
+            score++;
+
             cardOne.removeEventListener('click', cardFlip);
             cardTwo.removeEventListener('click', cardFlip);
             console.log(cardOneColor, cardColor);
-        } else if (cardOneColor !== cardColor); {
+         if (score === 8) {
+            timer = 0;
+            display.innerHTML = "YOU WIN!!!"; 
+
+         }
+        } else {
             console.log("No Match");
 
-            setTimeout(() => {evt.target.classList.toggle(cardColor)}, 1500);
-            setTimeout(() => {cardOne.classList.toggle(cardOneColor)}, 1500);
+            setTimeout(() => {evt.target.classList.toggle(cardColor)}, 1000);
+            setTimeout(() => {cardOne.classList.toggle(cardOneColor)}, 1000);
             console.log(cardOneColor, cardColor);
             
             console.log(cardOne.classList);
@@ -120,12 +132,12 @@ const startBtn = document.getElementById('start');
 // const countdownTimer = setInterval('secondsPassed')
 let start = document.querySelector('#start');
 let Replay = document.querySelector('#replay');
-let display = document.getElementById('timer');
 
-startBtn.addEventListener('click', () => startTimer(60)); 
+startBtn.addEventListener('click', () => startTimer()); 
 
-function startTimer(duration) {
-    let timer = duration, minutes, seconds;
+function startTimer() {
+     timer = duration
+    let  minutes, seconds;
     setInterval(function () {
         minutes = parseInt(timer / 60);
         seconds = parseInt(timer % 60);
@@ -136,10 +148,12 @@ function startTimer(duration) {
 
         display.innerHTML = minutes + ":" + seconds;
 
-        if (--timer < 0) {
-            timer = duration;
+        if (--timer < 1) {
+            // timer = duration;
+            display.innerHTML = "TIME'S UP!!! you lost";
         }
     }, 1000);
+
 }
 
 
