@@ -8,7 +8,7 @@
   body {
     font-family: 'Bungee Shade', cursive;
     margin: 0;
-    height: 100vh;  
+    height: 1000px;  
     justify-items: center;
     align-items: center;
     display: grid;
@@ -42,18 +42,18 @@
   }
 
   .board {
-    height: 100vh;
-    width: 100vh;
+    height: 750px;
+    width: 750px;
     display: grid;
+    padding: 10px;
     border-radius: 5vmin;
-    grid-template-columns: repeat(4, 25vmin);
-    grid-template-rows: repeat(4, 25vmin); 
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr); 
     background-image: linear-gradient(blueviolet, turquoise) ;
 
   }
 
   .card {
-    /* background-color: black; */
     margin: 10px;
     border-radius: 4vmin;
     position: relative;
@@ -66,6 +66,7 @@
 .btz {
     display: flex;
     justify-content: center;
+    text-align: center;
     align-content: space-between;
     margin: 15px;
 }
@@ -73,6 +74,7 @@
 
   .aside {
     display: flex;
+    text-align: center;
     justify-content: space-around;
     flex-direction: column;
     align-items: center;
@@ -89,7 +91,7 @@
   #start {
     background-image: linear-gradient(blueviolet, turquoise);
     color: bisque;
-    border-radius: 5vmin;
+    border-radius: 2vmin;
     height: 75px;
     width: 100px;
   }
@@ -97,9 +99,9 @@
   #replay {
     background-image: linear-gradient(blueviolet, turquoise);
     color: bisque;
-    border-radius: 5vmin;
+    border-radius: 2vmin;
     height: 50px;
-    width: 75px;
+    width: 100px;
   }
 
   #message {
@@ -118,8 +120,6 @@
 
  .card-face {
     display: flex;
-    /* background-image: url("images/CrissCrossPattern.png") ;
-    background-size: cover; */
     border-radius: 4vmin;
     object-fit: contain;
     object-position: center;
@@ -130,25 +130,6 @@
     backface-visibility: hidden;
  }
 
- /* .card-front { */
-    /* position: relative;
-    object-fit: contain;
-    width: inherit;
-    height: inherit; */
- 
-
- /* img {
-    position: relative;
-    object-fit: contain;
-    border-radius: 4vmin;
-    width: 25vmin;
-    height: 25vmin;
- } */
-
- /* .card-back {
-    background-color: blue;
-    background-size: cover;
- } */
  
 .red {
     background-color:red;
@@ -206,62 +187,15 @@
     background-image: none;
 }
 
-/* #cd08.card-front {
-    background-color:red;
-    border: 5px solid white;
-    border-radius: 4vmin;
-    background-image: none;
+.board > div:hover {
+    cursor: pointer;
 }
-
-#cd09.card-front {
-    background-color:greenyellow;
-    border: 5px solid white;
-    border-radius: 4vmin;
-    background-image: none;
+.board > div:active {
+    transform: scale(0.9);
+    transition: transform .3s;
 }
-
-#cd10.card-front {
-    background-color:blue;
-    border: 5px solid white;
-    border-radius: 4vmin;
-    background-image: none;
-}
-
-#cd11.card-front {
-    background-color:orange;
-    border: 5px solid white;
-    border-radius: 4vmin;
-    background-image: none;
-}
-
-#cd12.card-front {
-    background-color: yellow;
-    border: 5px solid white;
-    border-radius: 4vmin;
-    background-image: none;
-}
-
-#cd13.card-front {
-    background-color:brown;
-    border: 5px solid white;
-    border-radius: 4vmin;
-    background-image: none;
-}
-
-#cd14.card-front {
-    background-color:black;
-    border: 5px solid white;
-    border-radius: 4vmin;
-    background-image: none;
-}
-
-#cd15.card-front {
-    background-color:fuchsia;
-    border: 5px solid white;
-    border-radius: 4vmin;
-    background-image: none;
-} */
 
 .card.flip {
 transform: rotateY(180deg);
 }
+

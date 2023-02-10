@@ -2,6 +2,11 @@
 const cards = document.querySelectorAll('.card');
 let duration = 60;
 let timer;
+let playAgain = document.getElementById(replay);
+let lockBoard = true;
+let interv = null;
+
+
 
 
 let colorArray = ["red", "red", "blue", "blue", "greenyellow",  "greenyellow", "orange", "orange", "yellow", "yellow","brown", "brown","black", "black", "fuchsia", "fuchsia"] 
@@ -10,6 +15,10 @@ let colorArray = ["red", "red", "blue", "blue", "greenyellow",  "greenyellow", "
 
 
 
+
+// function playAgain() {
+//     shuffle(colorArray);
+// }
 
 //gamestate
 
@@ -67,52 +76,68 @@ cards.forEach((card, i) => {
 //start button / timer
 let display = document.getElementById('timer');
 let cardIsFlipped = false;
-let cardOne, cardTwo;
+let cardOne  = {target: null, cardId: null}
+let cardTwo = {target: null, cardId: null}
+
 let cardOneColor;
 let score = 0;
 
 let counter = 0;
 //card=flip
 function cardFlip(evt) {
-    // console.log('click!', cards);
-    console.log(evt.target);
+    if (lockBoard) return;
+   let cardId = evt.target.id;
+   if (cardOne.cardId  && cardTwo.cardId ) return
+   
+    console.log(cardOne.cardId, cardId);
+    console.log(cardTwo.cardId, cardId);
     let cardColor = evt.target.dataset.color;
-    console.log(cardColor)
+    // console.log(cardColor)
     evt.target.classList.toggle(cardColor);
-    console.log(evt.target);
+    // console.log(evt.target);
     // this.classList.toggle('card-front');
     console.log(counter)
     if (counter === 0) {
         cardIsFlipped = false; counter++;// counter +1 on click event
-        cardOne = evt.target;
+        cardOne ={target:evt.target, cardId : cardId} 
         console.log(counter);
         cardOneColor = cardColor;
     } else {
         cardIsFlipped = false;
-        cardTwo = evt.target;
+        cardTwo = {target:evt.target, cardId : cardId} 
         counter = 0
-        console.log(cardOne, cardTwo); 
+        // console.log(cardOne, cardTwo); 
         //chack  match
         if (cardOneColor === cardColor) {
             console.log('match');
             score++;
+            cardOne  = {target: null, cardId: null}
+            cardTwo = {target: null, cardId: null}
 
-            cardOne.removeEventListener('click', cardFlip);
-            cardTwo.removeEventListener('click', cardFlip);
-            console.log(cardOneColor, cardColor);
+            // cardOne.target.removeEventListener('click', cardFlip);
+            // cardTwo.target.removeEventListener('click', cardFlip);
+            // console.log(cardOneColor, cardColor);
          if (score === 8) {
-            timer = 0;
+            clearInterval(interv);
+            lockBoard = true;
             display.innerHTML = "YOU WIN!!!"; 
 
          }
         } else {
             console.log("No Match");
-
-            setTimeout(() => {evt.target.classList.toggle(cardColor)}, 1000);
-            setTimeout(() => {cardOne.classList.toggle(cardOneColor)}, 1000);
+            setTimeout(() => {
+                evt.target.classList.toggle(cardColor)
+                cardTwo = {target: null, cardId: null}
+            }, 1000);
+            setTimeout(() => {
+                cardOne.target.classList.toggle(cardOneColor)
+                cardOne  = {target: null, cardId: null}
+            }, 1000);
+            lockBoard = true;
+            setTimeout(lockBoard = false , 1000);
+            // lockBoard = false;
             console.log(cardOneColor, cardColor);
-            
-            console.log(cardOne.classList);
+            console.log(cardOne.target.classList);
 
         }
         }
@@ -126,19 +151,22 @@ cards.forEach(card => card.addEventListener('click', cardFlip));
 //start button
     //activate board, begin count
 const startBtn = document.getElementById('start');
-
+const replayBtn = document.getElementById('replay');
 
 //timer
 // const countdownTimer = setInterval('secondsPassed')
-let start = document.querySelector('#start');
-let Replay = document.querySelector('#replay');
+// let start = document.querySelector('#start');
+// let restart = document.querySelector('#replay');
 
-startBtn.addEventListener('click', () => startTimer()); 
+startBtn.addEventListener('click', () => startTimer());
+replayBtn.addEventListener('click', () =>  replay());
 
 function startTimer() {
+    lockBoard = false
      timer = duration
     let  minutes, seconds;
-    setInterval(function () {
+    interv = setInterval(function () {
+        
         minutes = parseInt(timer / 60);
         seconds = parseInt(timer % 60);
 
@@ -155,7 +183,15 @@ function startTimer() {
     }, 1000);
 
 }
-
+ function replay() {
+    
+    clearInterval(interv);
+    shuffle(colorArray);
+    cards.forEach((card, i) => {
+        card.classList = "card"
+    })
+    init()
+ }
 
 
 
